@@ -13,8 +13,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        viewDidAppear(true)
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        let storyBoard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let walkTharoughViewController = storyBoard.instantiateViewController(identifier: "WalkThroughViewController") as? WalkThroughViewController {
+            present(walkTharoughViewController, animated: true, completion: nil)
+        }
+    }
 
 }
 
